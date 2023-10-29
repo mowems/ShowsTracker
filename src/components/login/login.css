@@ -1,4 +1,12 @@
 
+.form-container {
+  background-color: #555655;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* vh stands for viewport height */
+}
+
 .loginContainer {
   width: 30%;
   height: 70vh;

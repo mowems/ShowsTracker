@@ -165,7 +165,7 @@ function App() {
       <Header handleLogout={handleLogout} />
         <Routes>
            {!user && <Route path='/' element={<Login LoginUser={LoginUser} />} />}
-           {/* {!user && <Route path='/signup' element={<SignUp CreateUser={CreateUser} />} />} */}
+           {!user && <Route path='/signup' element={<SignUp CreateUser={CreateUser} />} />}
           {/* {user && <Route exact path='/' element={<Home allShows={allShows} updateWatchedEpi={updateWatchedEpi} user={user} />} /> } */}
         </Routes>
     </Router>
