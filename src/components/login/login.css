@@ -1,0 +1,59 @@
+
+.loginContainer {
+  width: 30%;
+  height: 70vh;
+}
+
+.login-form {
+  margin: 40px 10px 10px 10px;
+}
+
+.link {
+  color: #b37171;
+}
+
+.btn {
+  display: inline-block;
+  background: #598970;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+.btn:focus {
+  outline: none;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+
+h3, h4, h5 {
+  float: left;
+  margin: 10px 20px;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* .btn-signup {
+  background: #b37171;
+} */
+
+.form-control {
+  margin: 20px 0;
+}
+
+.form-control input {
+  width: 100%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}

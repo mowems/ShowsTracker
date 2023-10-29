@@ -1,11 +1,4 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -13,7 +6,8 @@
   }
 }
 
-.App-header {
+.container {
+  text-align: center;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -35,4 +29,52 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* tooltip styles */
+.react-tooltip-lite {
+  background: #333;
+  color: white;
+}
+
+.react-tooltip-lite a {
+  color: #86b0f4;
+  text-decoration: none;
+}
+
+.react-tooltip-lite a:hover {
+  color: #4286f4;
+}
+
+.react-tooltip-lite-arrow {
+  border-color: #333;
+}
+
+/* overrides with a custom class */
+.customTip .react-tooltip-lite {
+  border: 1px solid #888;
+  background: #ccc;
+  color: black;
+}
+
+.customTip .react-tooltip-lite-arrow {
+  border-color:  #444;
+  position: relative;
+}
+
+.customTip .react-tooltip-lite-arrow::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 99;
+  display: block;
+}
+
+.customTip .react-tooltip-lite-up-arrow::before {
+  border-top: 10px solid #ccc;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  left: -10px;
+  top: -11px;
 }
