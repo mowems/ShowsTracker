@@ -1,10 +1,9 @@
-
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import '../login/login.css'
 
-
-const SignUp = ({ CreateUser }) => {
+const SignUp = ({ CreateUser, createUserErr }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -39,8 +38,14 @@ const SignUp = ({ CreateUser }) => {
     setConfirmPassword('')
   }
 
+  useEffect(() => {
+    if (createUserErr) {
+      setErrorEmail(createUserErr)
+    }
+  }, [createUserErr])
+
   return (
-    <div className='form-container '>
+    <div className='form-container'>
       <div className='loginContainer'>
         <h3>Register with Show Tracker</h3>
         <form className='login-form' onSubmit={registerUser}>
@@ -83,6 +88,11 @@ const SignUp = ({ CreateUser }) => {
               value="Register"
               className="btn btn-block"
             />
+          </div>
+          <div className='form-control'>
+            <div className=''>
+              <Link to='/' className='link' >Login</Link>
+            </div>
           </div>
         </form>
       </div>

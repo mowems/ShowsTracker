@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import './login.css'
 
-
-const Login = ({ LoginUser }) => {
+const Login = ({ LoginUser, loginUserErr }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorEmail, setErrorEmail] = useState(null)
   const [errorPassword, setErrorPassword] = useState(null)
+
+  useEffect(() => {
+    if (loginUserErr) {
+      setErrorEmail(loginUserErr)
+    }
+  }, [loginUserErr])
 
   const submitLogin = (e) => {
     e.preventDefault();
@@ -66,14 +71,13 @@ const Login = ({ LoginUser }) => {
             />
           </div>
           <div className='form-control'>
-            <div className=''>
+            <div className='btn-signup'>
               <Link to='/signup' className='link' >Register</Link>
             </div>
           </div>
         </form>
       </div>
     </div>
-
   )
 }
 

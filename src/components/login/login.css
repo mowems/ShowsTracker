@@ -1,6 +1,6 @@
 
 .form-container {
-  background-color: #555655;
+  background-color: #2d305d;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,8 +16,14 @@
   margin: 40px 10px 10px 10px;
 }
 
+h3 {
+  color: goldenrod;
+  font-size: 27px;
+}
+
 .link {
   color: #b37171;
+  font-size: 22px;
 }
 
 .btn {
@@ -50,9 +56,9 @@ h3, h4, h5 {
   width: 100%;
 }
 
-/* .btn-signup {
+.btn-signup {
   background: #b37171;
-} */
+}
 
 .form-control {
   margin: 20px 0;
