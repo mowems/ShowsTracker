@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema;
 const crypto = require("crypto")
 const uuidv1 = require("uuid/v1")
 
@@ -12,7 +13,8 @@ const uuidv1 = require("uuid/v1")
     unique: true
   },
   favouriteShows: [],
-  watchedEpisodes: [], //{ show: String, episode: String }
+  watchedShows: [],
+  watchedShowsEpisodes: [],
   encry_password: {
     type: String,
     required: true
