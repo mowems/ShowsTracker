@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-import './Header.css'
+import './header.css'
 
 const Header = ({ handleLogout }) => {
   return (
@@ -11,12 +11,6 @@ const Header = ({ handleLogout }) => {
             <Link to="/">ShowsTracker</Link>
           </div>
           <ul className="navbarLinks">
-            <li>
-              <Link to="/">Shows List</Link>
-            </li>
-            <li>
-              <Link to="/watched">Watch Again</Link>
-            </li>
             <li>
               <button className="btn btn-main" onClick={handleLogout}>
                 Log Out

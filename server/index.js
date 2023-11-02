@@ -2,9 +2,9 @@ const express = require('express');
 const path = require('path');
 require('dotenv').config()
 
-// const connectDB = require('../db/index');
+const connectDB = require('../db/index');
 
-// connectDB();
+connectDB();
 const app = express();
 const PORT = process.env.PORT || 8080;
 
