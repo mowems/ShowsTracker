@@ -2,6 +2,7 @@ const { User } = require('../../db/db')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
+
 exports.signUp = async (req, res) => {
   const { email, password } = req.body;
   const user = new User(req.body);
