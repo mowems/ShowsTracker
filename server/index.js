@@ -12,7 +12,7 @@ const userController = require('./Controller/controllerUser');
 const showsController = require('./Controller/controllerShows');
 
 const cors=require("cors");
-const corsOptions ={
+const corsOptions = {
    origin:'*',
    credentials:true,            //access-control-allow-credentials:true
    optionSuccessStatus:200,
@@ -21,6 +21,7 @@ const corsOptions ={
 app.use(cors(corsOptions))
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(express.static('build'));
 
 app.post('/api/signup', userController.signUp)
 app.get('/api/getuser', userController.getUser)
