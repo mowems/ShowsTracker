@@ -1,15 +1,14 @@
+
 const express = require('express');
 const path = require('path');
 require('dotenv').config()
 
 const connectDB = require('../db/index');
-
 connectDB();
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// const userController = require('./Controller/controllerUser');
-// const showsController = require('./Controller/controllerShows');
+const userController = require('./Controller/controllerUser');
 
 const cors=require("cors");
 const corsOptions ={
@@ -21,14 +20,6 @@ const corsOptions ={
 app.use(cors(corsOptions))
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-
-
-// app.post('/api/signup', userController.signUp)
-// app.post('/api/login', userController.login)
-// app.get('/api/logout', userController.logOut)
-// app.post('/api/addshows', showsController.postShows)
-// app.get('/api/getshows', showsController.getShows)
-// app.post('/api/postwatchedepi', userController.postEpi)
 
 
 

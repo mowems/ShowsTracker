@@ -71,7 +71,7 @@ const Login = ({ LoginUser, loginUserErr }) => {
             />
           </div>
           <div className='form-control'>
-            <div className='btn-signup'>
+            <div className=''>
               <Link to='/signup' className='link' >Register</Link>
             </div>
           </div>
