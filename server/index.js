@@ -9,6 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 const userController = require('./Controller/controllerUser');
+const showsController = require('./Controller/controllerShows');
 
 const cors=require("cors");
 const corsOptions ={
@@ -21,6 +22,8 @@ app.use(cors(corsOptions))
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+app.post('/api/signup', userController.signUp)
+app.get('/api/getuser', userController.getUser)
 
 
 if (process.env.NODE_ENV === 'development') {
