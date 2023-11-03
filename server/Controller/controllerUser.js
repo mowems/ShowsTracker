@@ -95,4 +95,82 @@ exports.logOut = (req, res) => {
   })
 }
 
+exports.addShow = (req, res) => {
+  const { userId, movieId } = req.body;
+  User.findOne({userId}, (err, user) => {
+    if(err || !user) {
+      return res.status(400).json({
+        error: "User not found"
+      })
+    }
+
+    try {
+      User.updateOne(
+         { _id : userId },
+         { $addToSet : {favouriteShows: movieId}}
+      )
+      .catch((err) => {
+        console.log('post error ', err);
+      })
+    }
+    catch (e){
+      print(e);
+    }
+  })
+}
+
+exports.removeShow = (req, res) => {
+  const { userId, movieId } = req.body;
+  User.findOne({userId}, (err, user) => {
+    if(err || !user) {
+      return res.status(400).json({
+        error: "User not found"
+      })
+    }
+
+    try {
+      User.updateOne(
+         { _id : userId },
+         { $pull : {favouriteShows: movieId}}
+      )
+      .catch((err) => {
+        console.log('post error ', err);
+      })
+    }
+    catch (e){
+      print(e);
+    }
+  })
+}
+
+exports.postEpi = (req, res) => {
+  const { userId, showId, show, episode, episodeIndex } = req.body;
+  let key = showId;
+  let obj = {};
+
+  // let nextEpiIndex = episodeIndex + 1;
+  obj[key] = { show, episode, showId, episodeIndex };
+
+  User.findOne({userId}, (err, user) => {
+    if(err || !user) {
+      return res.status(400).json({
+        error: "User not found"
+      })
+    }
+
+  User.updateOne(
+    {
+      _id : userId
+    },
+    {
+      $addToSet: { watchedShows : showId },
+      $push : { watchedShowsEpisodes: obj}
+    }
+  )
+  .catch((err) => {
+      console.log('post error with model', err);
+    })
+  })
+  return res.sendStatus(200);
+}
 

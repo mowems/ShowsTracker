@@ -28,6 +28,9 @@ app.post('/api/login', userController.login)
 app.get('/api/logout', userController.logOut)
 app.post('/api/addshows', showsController.postShows)   //All available shows
 app.get('/api/getshows', showsController.getShows)      //Get all available shows
+app.post('/api/addshow', userController.addShow)      //Add to favourite
+app.post('/api/removeshow', userController.removeShow)       //Remove frm favourite
+app.post('/api/postwatchedepi', userController.postEpi)       //Post episode watched
 
 
 if (process.env.NODE_ENV === 'development') {
