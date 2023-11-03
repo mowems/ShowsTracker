@@ -55,4 +55,45 @@ exports.getUser = (req, res) => {
     }})
 }
 
+exports.login = async (req, res) => {
+  const {email, password} = req.body;
+  User.findOne({email}, (err, user) => {
+    if(err || !user) {
+      return res.status(400).json({
+        error: "Email not found"
+      })
+    }
+    //Authenticate user
+    if(user.authenticate(password) === false) {
+      return res.status(400).json({
+        error: "Email and password do not match"
+      })
+    }
+    //Create token
+    const token = jwt.sign({_id: user._id},  "" + process.env.SECRET)
+    //PUT TOKEN IN COOKIE
+    res.cookie('token', token, {expire: new Date() + 1})
+    //Send response
+    const {_id, email, favouriteShows, watchedShowsEpisodes, watchedShows } = user;
+    return res.status(200).send({
+      token,
+      user: {
+        _id,
+        email,
+        favouriteShows,
+        watchedShowsEpisodes,
+        watchedShows
+      }
+    })
+  })
+}
+
+exports.logOut = (req, res) => {
+  res.clearCookie("token")
+  return res.json({
+    message: "User sign out successful"
+  })
+}
+
+
 

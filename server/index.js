@@ -24,6 +24,9 @@ app.use(express.json());
 
 app.post('/api/signup', userController.signUp)
 app.get('/api/getuser', userController.getUser)
+app.post('/api/login', userController.login)
+app.get('/api/logout', userController.logOut)
+
 
 
 if (process.env.NODE_ENV === 'development') {
