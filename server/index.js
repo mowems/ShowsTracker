@@ -32,7 +32,6 @@ app.post('/api/addshow', userController.addShow)      //Add to favourite
 app.post('/api/removeshow', userController.removeShow)       //Remove frm favourite
 app.post('/api/postwatchedepi', userController.postEpi)       //Post episode watched
 
-
 if (process.env.NODE_ENV === 'production') {
   app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, '../public/index.html'), function(err) {
