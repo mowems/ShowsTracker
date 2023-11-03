@@ -26,7 +26,8 @@ app.post('/api/signup', userController.signUp)
 app.get('/api/getuser', userController.getUser)
 app.post('/api/login', userController.login)
 app.get('/api/logout', userController.logOut)
-
+app.post('/api/addshows', showsController.postShows)   //All available shows
+app.get('/api/getshows', showsController.getShows)      //Get all available shows
 
 
 if (process.env.NODE_ENV === 'development') {
